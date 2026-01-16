@@ -10,9 +10,9 @@ cabecalho_projeto()
 def exibir_opcoes():
     print("1- Adicionar gasto")
     print("2- Listar gastos")
-    print("3- Total por categoria")
-    print("4- Total geral")
-    print("5- Categoria com maior gasto")
+    print("3- Total Geral")
+    print("4- Categoria com maior gasto")
+    print("5- Total por Categoria")
     print("6- Sair\n")         
 
 # VOLTAR AO MENU
@@ -32,7 +32,7 @@ def escolha_opcao():
         elif opcao == 2:
             listar_gastos()
         elif opcao == 3:
-            total_categoria()
+            total_geral()
         elif opcao == 4:
             print("4- Total geral")
         elif opcao == 5:
@@ -77,9 +77,19 @@ def listar_gastos():
     input("\nPressione ENTER para voltar ao menu...\n")
     voltar_menu()      
 
-# TOTAL POR CATEGORIA
-def total_categoria():
-    ...
+# TOTAL POR GERAL
+def total_geral():
+    total = 0
+    
+    if not lista_de_gastos:
+        print("\n❌ Nenhum gasto cadastrado.")
+    else:
+        for i in lista_de_gastos:
+            total = total + i["valor"]
+        print(f"\n💰 Total gasto: R$ {total:.2f}")
+    
+    input("\nPressione ENTER para voltar ao menu...\n")
+    voltar_menu()
 
 # OPÇÃO INVÁLIDA       
 def opcao_invalida():
